@@ -8,11 +8,11 @@
     "prebuild": "rm -rf dist/* && mkdir -p dist",
     "build": "npm-run-all --parallel build:*",
     "build:css": "node-sass src/index.scss | postcss -c .postcssrc.json | cssmin > dist/bundle.min.css",
-    "build:html": "cp src/client/index.html dist/index.html",
-    "build:js": "browserify src/client/index.js -t babelify --debug | exorcist dist/bundle.min.js.map > dist/bundle.min.js",
+    "build:html": "cp src/index.html dist/index.html",
+    "build:js": "browserify src/index.js -t babelify --debug | exorcist dist/bundle.min.js.map > dist/bundle.min.js",
     "watch": "npm run build && npm-run-all --parallel watch:*",
     "watch:css": "onchange 'src/**/*.scss' -- npm run build:css",
-    "watch:html": "onchange 'src/client/**/*.html' -- npm run build:html",
+    "watch:html": "onchange 'src/**/*.html' -- npm run build:html",
     "watch:js": "onchange 'src/**/*.js' -- npm run build:js",
     "serve": "npm-run-all --parallel watch serve:dev",
     "serve:dev": "browser-sync start -s 'dist' -f 'dist' --port 1337 --no-open --reload-debounce 500",
@@ -25,8 +25,6 @@
   "author": "Felix Dürrwald <fduerrwald@salesforce.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "4.15.2",
-    "morgan": "1.8.1",
     "preact": "7.2.1",
     "preact-redux": "2.0.1",
     "redux": "3.6.0"
