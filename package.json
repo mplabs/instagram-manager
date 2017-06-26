@@ -16,6 +16,7 @@
     "watch:js": "onchange 'src/**/*.js' -- npm run build:js",
     "serve": "npm-run-all --parallel watch serve:dev",
     "serve:dev": "browser-sync start -s 'dist' -f 'dist' --port 1337 --no-open --reload-debounce 500",
+    "dev": "npm run build && npm run serve",
     "start": "npm run serve"
   },
   "engines": {

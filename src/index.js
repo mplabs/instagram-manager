@@ -1,21 +1,18 @@
+import './polyfills'
+
 import { h, render } from 'preact'
 import { Provider } from 'preact-redux'
-import { applyMiddleware, compose, createStore } from 'redux'
-import appReducer from './reducers'
+import store from './store'
+import actions from './store/actions'
 import App from './components/App'
-
-const initialState = {
-  // Your apps initial state
-}
-
-const store = createStore(appReducer, initialState,
-  (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose)(applyMiddleware(
-    // Midlewares...
-  ))
-)
 
 // Remove cloak
 document.body.classList.remove('invisible')
+
+// Initialize the app
+store.dispatch(actions.init({
+  pageTitle: 'NPM Preact Boilerplate'
+}))
 
 render (
   <Provider store={store}>
