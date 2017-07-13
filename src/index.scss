@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
 *,
 *::before,
 *::after {
@@ -5,3 +7,14 @@
 }
 
 @import 'layout';
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 14pt;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.pageTitle {
+  text-align: center;
+}
